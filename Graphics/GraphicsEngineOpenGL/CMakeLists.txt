@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.10)
+cmake_minimum_required (VERSION 3.24)
 
 project(Diligent-GraphicsEngineOpenGL CXX)
 
@@ -262,7 +262,7 @@ PUBLIC
 target_link_libraries(Diligent-GraphicsEngineOpenGL-shared
 PRIVATE
     Diligent-BuildSettings
-    ${WHOLE_ARCHIVE_FLAG} Diligent-GraphicsEngineOpenGL-static ${NO_WHOLE_ARCHIVE_FLAG}
+    "$<LINK_LIBRARY:WHOLE_ARCHIVE,Diligent-GraphicsEngineOpenGL-static>"
 PUBLIC
     ${PUBLIC_DEPENDENCIES}
 )

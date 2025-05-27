@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.10)
+cmake_minimum_required (VERSION 3.24)
 
 include(../../BuildTools/CMake/VulkanUtils.cmake)
 
@@ -286,7 +286,7 @@ PUBLIC
 target_link_libraries(Diligent-GraphicsEngineVk-shared
 PRIVATE
     Diligent-BuildSettings
-    ${WHOLE_ARCHIVE_FLAG} Diligent-GraphicsEngineVk-static ${NO_WHOLE_ARCHIVE_FLAG}
+    "$<LINK_LIBRARY:WHOLE_ARCHIVE,Diligent-GraphicsEngineVk-static>"
 PUBLIC
     ${PUBLIC_DEPENDENCIES}
 )

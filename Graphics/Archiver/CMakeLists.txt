@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.10)
+cmake_minimum_required (VERSION 3.24)
 
 project(Diligent-Archiver CXX)
 
@@ -181,7 +181,7 @@ PUBLIC
     Diligent-ArchiverInterface
 PRIVATE
     Diligent-BuildSettings
-    ${WHOLE_ARCHIVE_FLAG} Diligent-Archiver-static ${NO_WHOLE_ARCHIVE_FLAG}
+    "$<LINK_LIBRARY:WHOLE_ARCHIVE,Diligent-Archiver-static>"
 )
 
 if(PLATFORM_WIN32)
