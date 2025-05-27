@@ -35,10 +35,12 @@ jobs:
       run: |
         cd ./BuildTools/Android
         chmod +x gradlew
-        ./gradlew buildCMakeRelease
+        ./gradlew buildCMakeDebug
 
     - name: Upload build output
       uses: actions/upload-artifact@main
       with:
         name: MG-lib
-        path: build/*.so
+        path: |
+          ${{env.DILIGENT_INSTALL_DIR}}
+          !${{env.DILIGENT_INSTALL_DIR}}/**/*.a
